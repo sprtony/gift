@@ -17,11 +17,11 @@
     </style>
   </head>
   <body>
-    <div class="gift" id='gift' onclick="animacion()">
+    <div class="gift" id='gift' onclick="animacionup()">
 
     </div>
     <script type="text/javascript">
-      function animacion() {
+      function animacionup() {
         var gift = document.getElementById('gift');
         var res = Math.floor((Math.random()*2)+1);
         if (res == 1) {
@@ -29,9 +29,20 @@
         }else{
           gift.style.backgroundColor = "green";
         }
-
         gift.style.width= "90%";
-        gift.style.height= "90%"
+        gift.style.height= "90%";
+
+        gift.removeAttribute('onclick');
+        gift.setAttribute('onclick','animaciondown()');
+      }
+      function animaciondown() {
+        var gift = document.getElementById('gift');
+        gift.style.width= "160px";
+        gift.style.height= "100px";
+        gift.style.backgroundColor = "white";
+
+        gift.removeAttribute('onclick');
+        gift.setAttribute('onclick','animacionup()');
       }
     </script>
   </body>
